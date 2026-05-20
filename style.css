@@ -1,0 +1,85 @@
+body {
+    background: #5e4b4b;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    margin-top: 50px;
+}
+h1 {
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.todo-card {
+    background: #8c7878;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+input {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background: #5e4b4b;
+    color: white;
+}
+::placeholder {
+    color:#ffffff;;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5e4b4b;
+    color: white;
+    cursor: pointer;
+}
+.todo-list {
+    background: #8c7878;
+    padding-bottom: 500px;
+    padding-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+.todo-list-form {
+    background: #8c7878;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.todo-info {
+    display: flex;
+    gap: 20px;
+}
+.todo-sobre{
+    flex: 1;
+    background: #8c7878;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+.todo-contato{
+    flex: 1;
+    background: #8c7878;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+ul {
+    list-style: none;
+}
