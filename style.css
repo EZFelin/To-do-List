@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 body {
     background: linear-gradient(135deg, #1e1e2f, #3a0ca3, #4361ee);
     min-height: 100vh;
@@ -5,6 +8,7 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
     margin-top: 50px;
+    padding: 20px;
 }
 h1 {
     text-align: center;
@@ -19,10 +23,15 @@ h1 {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
-form {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
+@media (max-width: 600px) {
+    form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    input {
+        margin-right: 0;
+    }
 }
 input {
     background: rgba(255, 255, 255, 0.1);
@@ -59,7 +68,6 @@ button:hover {
     background: rgba(114, 9, 183, 0.15);
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    padding-bottom: 500px;
     padding-top: 10px;
     border-radius: 10px;
     margin-top: 20px;
@@ -80,6 +88,7 @@ h2 {
 .todo-info {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
 .todo-sobre{
     flex: 1;
