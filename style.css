@@ -7,19 +7,19 @@ body {
     color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
-    margin-top: 50px;
-    padding: 20px;
+    margin-top: 20px;
+    padding: 15px;
 }
 h1 {
     text-align: center;
-    font-size: 50px;
-    margin-bottom: 20px;
+    font-size: 38px;
+    margin-bottom: 15px;
 }
 .todo-card {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -41,7 +41,6 @@ input {
     color: white;
     outline: none;
     backdrop-filter: blur(5px);
-    margin-right: 20px;
 }
 input:focus {
     border-color: #4cc9f0;
@@ -83,40 +82,11 @@ h2 {
     background: #8c7878;
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
-}
-.todo-info {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-.todo-sobre{
-    flex: 1;
-    background: rgba(58, 12, 163, 0.15);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.todo-contato{
-    flex: 1;
-    background: rgba(76, 201, 240, 0.15);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
 }
 ul {
     list-style: none;
-    padding: 0 20px;
+    padding: 0 10px;
 }
 .btn-excluir {
     background: crimson;
@@ -132,11 +102,15 @@ ul {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
-    padding: 10px 20px;
+    padding: 8px 15px;
     backdrop-filter: blur(5px);
 }
 #todo-list li{
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+}
+.app-shell {
+    max-width: 900px;
+    margin: 0 auto;
 }
