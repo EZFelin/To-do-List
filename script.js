@@ -1,16 +1,5 @@
-const botao = document.querySelector('#todo-button');
-botao.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    const input = document.querySelector('#todo-input');
-
-    console.log(input.value);
-
-    if (input.value === '') {
-        alert('Por favor, digite uma tarefa.');
-        return;
-    }
-
+function criarTarefa(texto) {
+    
     const li = document.createElement('li');
 
     const checkbox = document.createElement('input');
@@ -27,7 +16,7 @@ botao.addEventListener("click", (event) => {
     });
 
     const span = document.createElement('span');
-    span.textContent = input.value;
+    span.textContent = texto;
 
     li.appendChild(checkbox);
     li.appendChild(span);
@@ -36,8 +25,6 @@ botao.addEventListener("click", (event) => {
 
     checkEmptyList();
 
-    input.value = '';
-
     li.classList.add('todo-item');
 
     const botaoExcluir = document.createElement('button');
@@ -45,6 +32,9 @@ botao.addEventListener("click", (event) => {
     botaoExcluir.textContent = 'Excluir';
 
     botaoExcluir.addEventListener('click', () => {
+        tarefas = tarefas.filter(tarefa => tarefa !== span.textContent);
+        localStorage.setItem('tarefas', JSON.stringify(tarefas));
+
         li.remove();
         checkEmptyList();
     });
@@ -53,10 +43,34 @@ botao.addEventListener("click", (event) => {
     botaoExcluir.innerHTML = '<i class="fa-solid fa-trash"></i>';
 
     li.appendChild(botaoExcluir);
-});
-
+}
 const todoList = document.querySelector('#todo-list');
 const emptyListMessage = document.querySelector('.empty-list');
+let tarefas = [];
+const tarefasSalvas = localStorage.getItem('tarefas');
+if (tarefasSalvas) {
+    tarefas = JSON.parse(tarefasSalvas);
+    tarefas.forEach(tarefa => {
+        criarTarefa(tarefa);
+    });
+}
+const botao = document.querySelector('#todo-button');
+botao.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const input = document.querySelector('#todo-input');
+
+    console.log(input.value);
+
+    if (input.value === '') {
+        alert('Por favor, digite uma tarefa.');
+        return;
+    }
+    criarTarefa(input.value);
+    tarefas.push(input.value);
+    localStorage.setItem('tarefas', JSON.stringify(tarefas));
+    input.value = '';
+});
 
 function checkEmptyList() {
     if (todoList.children.length === 0) {
@@ -67,3 +81,4 @@ function checkEmptyList() {
 }
 
 checkEmptyList();
+
