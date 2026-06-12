@@ -60,8 +60,6 @@ botao.addEventListener("click", (event) => {
 
     const input = document.querySelector('#todo-input');
 
-    console.log(input.value);
-
     if (input.value === '') {
         alert('Por favor, digite uma tarefa.');
         return;
