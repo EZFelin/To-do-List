@@ -1,22 +1,34 @@
-function criarTarefa(texto) {
+function criarTarefa(tarefa) {
     
     const li = document.createElement('li');
 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
+    if (tarefa.concluida) {
+        checkbox.checked = true;
+        li.style.textDecoration = "line-through";
+        li.style.opacity = "0.5";
+    }
+     
 
     checkbox.addEventListener('change', () => {
         if (checkbox.checked) {
             li.style.textDecoration = "line-through";
             li.style.opacity = "0.5";
+            tarefa.concluida = true;
         } else {
             li.style.textDecoration = 'none';
             li.style.opacity = '1';
+            tarefa.concluida = false;
         }
+        localStorage.setItem(
+        'tarefas',
+        JSON.stringify(tarefas)
+    );
     });
 
     const span = document.createElement('span');
-    span.textContent = texto;
+    span.textContent = tarefa.texto;
 
     li.appendChild(checkbox);
     li.appendChild(span);
@@ -32,7 +44,8 @@ function criarTarefa(texto) {
     botaoExcluir.textContent = 'Excluir';
 
     botaoExcluir.addEventListener('click', () => {
-        tarefas = tarefas.filter(tarefa => tarefa !== span.textContent);
+        tarefas = tarefas.filter(tarefa => tarefa.texto !== span.textContent
+);
         localStorage.setItem('tarefas', JSON.stringify(tarefas));
 
         li.remove();
@@ -57,15 +70,18 @@ if (tarefasSalvas) {
 const botao = document.querySelector('#todo-button');
 botao.addEventListener("click", (event) => {
     event.preventDefault();
-
     const input = document.querySelector('#todo-input');
+    const tarefa = {
+        texto: input.value,
+        concluida: false
+    };
 
     if (input.value === '') {
         alert('Por favor, digite uma tarefa.');
         return;
     }
-    criarTarefa(input.value);
-    tarefas.push(input.value);
+    criarTarefa(tarefa);
+    tarefas.push(tarefa);
     localStorage.setItem('tarefas', JSON.stringify(tarefas));
     input.value = '';
 });
